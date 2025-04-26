@@ -102,7 +102,7 @@ export default function NRKStreamingDemo() {
 
   return (
     <div className="min-h-screen bg-neutral-900 text-white flex flex-col items-center py-8 px-4">
-      <div className="w-full ">
+      <div className="w-full px-20">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           <div className="relative rounded-2xl overflow-hidden shadow-lg md:col-span-3">
             <video
