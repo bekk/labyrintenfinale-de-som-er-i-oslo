@@ -129,12 +129,12 @@ const SKAMAnalysisPage = () => {
 
   // Generate reaction type data with emojis
   const reactionTypeData = [
-    { name: "❤️ Kjærlighet", count: 743, color: "#ec4899" }, 
-    { name: "👍 Bra innhold", count: 876, color: "#4ade80" },
-    { name: "😂 Morsomt", count: 134, color: "#facc15" },
+    { name: "❤️ Kjærlighet", count: 893, color: "#ec4899" }, 
+    { name: "👍 Bra innhold", count: 726, color: "#4ade80" },
+    { name: "😂 Morsomt", count: 234, color: "#facc15" },
     { name: "😮 Sjokkert", count: 412, color: "#a855f7" },
     { name: "😭 Trist", count: 164, color: "#3b82f6" },
-    { name: "🤔 Forvirret", count: 10, color: "#f97316" },
+    { name: "🤔 Forvirret", count: 92, color: "#f97316" },
     { name: "😴 Kjedelig", count: 230, color: "#64748b" },
     { name: "😡 Sint", count: 674, color: "#ef4444" }
   ];
@@ -163,7 +163,29 @@ const SKAMAnalysisPage = () => {
   };
 
   return (
-    <div className="bg-gray-900 text-white min-h-screen p-6">
+    <>
+    {/* NavBar */}
+    <nav className="bg-gray-800 text-white px-6 py-4 flex items-center justify-between">
+      {/* Logo & static nav links */}
+      <div className="flex items-center space-x-2">
+        <div className="h-8 w-auto">
+        <svg viewBox="0 0 24 24" className="h-full w-full" xmlns="http://www.w3.org/2000/svg">
+            <path 
+              fill="currentColor" 
+              d="M4,2h16a2,2,0,0,1,2,2V20a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V4A2,2,0,0,1,4,2M4,4V20H20V4H4m2,2h12v12H6V6m2,2v8h8V8H8m2,2h4v4H10V10"
+            />
+          </svg>
+        </div>
+        <div className="h-8 w-auto">
+          <h1 className="text-xl font-bold">Labyrinten Consulting & Analysis</h1>
+        </div>
+        <ul className="flex ml-8 space-x-6">
+        </ul>
+      </div>
+    </nav>
+
+
+    <div className="bg-gray-900 text-white min-h-screen p-2">
       {/* Header */}
       <div className="max-w-7xl mx-auto mb-8">
         <h1 className="text-3xl font-bold mb-2">SKAM Seeranalyse</h1>
@@ -174,16 +196,23 @@ const SKAMAnalysisPage = () => {
           <span className="mr-4 ml-4">•</span>
           <span>{episode.viewerCount.toLocaleString()} seere</span>
           <span className="mr-4 ml-4">•</span>
-          <span>{episode.commentCount.toLocaleString()} kommentarer</span>
+          <span>{episode.commentCount.toLocaleString()} chat-meldinger</span>
         </div>
         <div className="h-1 w-full bg-indigo-600 rounded-full"></div>
       </div>
       
+      <div className="max-w-7xl mx-auto p-1">
+        <h1 className="text-4xl font-bold">
+          Reaksjons analyse
+        </h1>
+      </div>
+
       {/* Timeline Graph - Simplified */}
       <div className="max-w-7xl mx-auto bg-gray-800 rounded-xl p-6 mb-8">
         <h2 className="text-xl font-bold mb-4">Tidslinje for seerengasjement</h2>
         <p className="text-gray-400 text-sm mb-4">Antall reaksjoner gjennom episoden</p>
-        
+        <p className="text-gray-400 text-md mb-4"> Dominant følelse: ❤️ Kjærlighet</p>
+
         <div className="h-64">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={timelineData} margin={{ top: 20, right: 20, left: 20, bottom: 10 }}>
@@ -246,6 +275,12 @@ const SKAMAnalysisPage = () => {
         </div>
       </div>
       
+      <div className="max-w-7xl mx-auto p-6">
+        <h1 className="text-4xl font-bold">
+          Sentimentanalyse
+        </h1>
+      </div>
+
       {/* Analysis Section - Switched positions */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
         {/* Keyword Analysis - Now first */}
@@ -351,6 +386,7 @@ const SKAMAnalysisPage = () => {
         </p>
       </div>
     </div>
+    </>
   );
 };
 
